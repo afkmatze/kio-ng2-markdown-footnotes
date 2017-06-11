@@ -2,17 +2,10 @@ import { CommonModule } from '@angular/common'
 import { NgModule, ModuleWithProviders, Provider } from '@angular/core'
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [],
   //declarations: [],
   //providers: [ ],
   //entryComponents: [],
-  exports: [CommonModule]
+  exports: []
 })
 export class MainModule {}
-
-export function forRoot ():ModuleWithProviders {
-  return {
-    ngModule: MainModule,
-    providers: []
-  }
-}

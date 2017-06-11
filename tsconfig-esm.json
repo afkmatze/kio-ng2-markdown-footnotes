@@ -1,0 +1,22 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "outDir": "./build/esm",
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "declaration": true,
+    "lib" : ["es2015", "es2015.iterable", "dom"]
+  },
+  "exclude": [
+    "build",
+    "node_modules",
+    "release",
+    "aot"
+  ]
+}

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 var MainModule = (function () {
     function MainModule() {
@@ -8,19 +7,13 @@ var MainModule = (function () {
 export { MainModule };
 MainModule.decorators = [
     { type: NgModule, args: [{
-                imports: [CommonModule],
+                imports: [],
                 //declarations: [],
                 //providers: [ ],
                 //entryComponents: [],
-                exports: [CommonModule]
+                exports: []
             },] },
 ];
 /** @nocollapse */
 MainModule.ctorParameters = function () { return []; };
-export function forRoot() {
-    return {
-        ngModule: MainModule,
-        providers: []
-    };
-}
 //# sourceMappingURL=module.js.map
