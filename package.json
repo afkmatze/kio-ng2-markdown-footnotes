@@ -52,6 +52,7 @@
 		"@types/showdown": "^1.4.32",
 		"kio-ng2-markdown-extension": "github:afkmatze/kio-ng2-markdown-extension",
 		"rxjs": "^5.4.0",
+		"showdown-footnotes": "^2.1.2",
 		"zone.js": "^0.8.12"
 	}
 }

@@ -1,33 +1,24 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { MarkdownFootnotesParser } from './classes/MarkdownFootnotes.class';
-export { kioFootnotes } from './extension';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var common_1 = require("@angular/common");
+var core_1 = require("@angular/core");
+var extension_1 = require("./extension");
+exports.kioFootnotes = extension_1.kioFootnotes;
 var MarkdownFootnotes = (function () {
     function MarkdownFootnotes() {
     }
-    MarkdownFootnotes.forRoot = function () {
-        return {
-            ngModule: MarkdownFootnotes,
-            providers: [
-                {
-                    provide: MarkdownFootnotesParser,
-                    useClass: MarkdownFootnotesParser
-                }
-            ]
-        };
-    };
     return MarkdownFootnotes;
 }());
-export { MarkdownFootnotes };
 MarkdownFootnotes.decorators = [
-    { type: NgModule, args: [{
-                imports: [CommonModule],
+    { type: core_1.NgModule, args: [{
+                imports: [common_1.CommonModule],
                 //declarations: [],
                 //providers: [ ],
                 //entryComponents: [],
-                exports: [CommonModule]
+                exports: [common_1.CommonModule]
             },] },
 ];
 /** @nocollapse */
 MarkdownFootnotes.ctorParameters = function () { return []; };
+exports.MarkdownFootnotes = MarkdownFootnotes;
 //# sourceMappingURL=module.js.map
