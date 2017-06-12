@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MarkdownFootnotesParser } from './classes/MarkdownFootnotes.class';
+export { kioFootnotes } from './extension';
 var MarkdownFootnotes = (function () {
     function MarkdownFootnotes() {
     }
