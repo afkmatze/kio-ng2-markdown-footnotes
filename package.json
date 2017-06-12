@@ -12,11 +12,11 @@
 		"postversion": "git push && git push --tags",
 		"predoc": "rm -rf ./documentation",
 		"doc": "compodoc -p ./tsconfig-doc.json -d ./documentation/",
-		"deploy:release": "rm -rf ./release; mv ./build release",
+		"deploy:release": "./scripts/copy_release.sh",
 		"transpile": "npm run ngModule:build",
 		"ngModule:build": "./scripts/ngModule.sh build",
 		"ngModule:copy": "echo ./scripts/ngModule.sh copy ",
-		"build": "npm run ngModule:build && npm run ngModule:copy",
+		"build": "npm run ngModule:build && npm run deploy:release",
 		"build:release": "NODE_ENV=production npm run build",
 		"build:release:watch": "./scripts/watch.sh build:release"
 	},
