@@ -16,15 +16,7 @@ function kioFootnotes() {
         footnotesExt = [footnotesExt];
     }
     footnotesExt = footnotesExt.map(function (e) { return (__assign({}, e, { type: kio_ng2_markdown_extension_1.ExtensionTypeByName[e.type] })); });
-    return footnotesExt.concat([
-        {
-            type: kio_ng2_markdown_extension_1.ExtensionTypes.output,
-            filter: function (source, converter, options) {
-                console.log('filter source: "%s"', source);
-                return source;
-            }
-        }
-    ]);
+    return footnotesExt.slice();
 }
 exports.kioFootnotes = kioFootnotes;
 //# sourceMappingURL=extension.js.map
