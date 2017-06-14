@@ -1,2 +1,4 @@
-import { ExtensionImplementation, ExtensionTypes } from 'kio-ng2-markdown-extension';
-export declare function kioFootnotes(): ExtensionImplementation<ExtensionTypes>[];
+export declare function kioFootnotes(): {
+    type: string;
+    filter: (text: any, converter: any) => any;
+}[];

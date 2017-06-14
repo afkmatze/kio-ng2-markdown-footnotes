@@ -1,22 +1,32 @@
 "use strict";
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var kio_ng2_markdown_extension_1 = require("kio-ng2-markdown-extension");
-var footnotes = require("showdown-footnotes");
 function kioFootnotes() {
-    var footnotesExt = footnotes();
-    if (!Array.isArray(footnotesExt)) {
-        footnotesExt = [footnotesExt];
-    }
-    footnotesExt = footnotesExt.map(function (e) { return (__assign({}, e, { type: kio_ng2_markdown_extension_1.ExtensionTypeByName[e.type] })); });
-    return footnotesExt.slice();
+    return [
+        {
+            type: 'lang',
+            filter: function filter(text, converter) {
+                return text.replace(/^\[\^([\d\w]+)\]:\s*((\n+(\s{2,4}|\t).+)+)$/mg, function (str, name, rawContent, _, padding) {
+                    var content = converter.makeHtml(rawContent.replace(new RegExp('^' + padding, 'gm'), ''));
+                    return '<div class="footnote" id="footnote-' + name + '"><a href="#footnote-' + name + '"><sup>[' + name + ']</sup></a>:' + content + '</div>';
+                });
+            }
+        },
+        {
+            type: 'lang',
+            filter: function filter(text) {
+                return text.replace(/^\[\^([\d\w]+)\]:( |\n)((.+\n)*.+)$/mg, function (str, name, _, content) {
+                    return '<span class="footnote collapsed" id="footnote-' + name + '">' + content + '</span>';
+                });
+            }
+        }, {
+            type: 'lang',
+            filter: function filter(text) {
+                return text.replace(/\[\^([\d\w]+)\]/m, function (str, name) {
+                    return '<a class="footnote-anchor footnote-head" href="#footnote-' + name + '"><strong>[' + name + ']</strong></a>';
+                });
+            }
+        }
+    ];
 }
 exports.kioFootnotes = kioFootnotes;
 //# sourceMappingURL=extension.js.map
